@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import Image from 'next/image';
-import NavDots from './components/navdots';
+import NavDots from '../components/Hero/NavDots';
 
 const mobileHeroLogos = [
   {
