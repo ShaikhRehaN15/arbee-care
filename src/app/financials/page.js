@@ -38,11 +38,14 @@ export default function financials() {
                     </div>
 
                 </div>
-                <div className="flex flex-col bg-[#2C2C2C]">
-                    <div className="pt-[32px] px-[20px] pb-[16px]">
+                <div className="flex flex-col bg-[#2C2C2C]" >
+                    <div className="px-[20px]">
+                    <div className="pt-[32px] px-[20px] pb-[16px] border-b ">
                         <span className="font-noto-sans font-normal text-[22px] ">
 Latest Financial Reports  
                         </span>
+                    </div>
+                    </div>
                     </div>
                     <div className=""> 
                     <div
@@ -74,7 +77,7 @@ Latest Financial Reports
 
                     
                 </div>
-            </div>
+            
 
         </section>
     );
