@@ -1,13 +1,15 @@
 "use client";
 import React from 'react';
 import {useState,useRef,useEffect} from 'react';
+import { useActiveIndexStore } from '@/store/useActiveIndexStore';
+
 
 export default function Herobgvideo(){
     const heroVideos = [
-    '/Arbee-Care.mp4',
+    '/ocean.mp4',
     '/Arbee-Aquatic.mp4',
     '/Arbee-Biomarine.mp4',
-    '/ocean.mp4',
+    '/Arbee-Care.mp4',
   ];
   const heroTitles = [
     'arbee',
@@ -22,7 +24,7 @@ export default function Herobgvideo(){
     'Care Division | Wellness & Nutrition Solutions',
   ];
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const { activeIndex, setActiveIndex } = useActiveIndexStore();
   const heroRef = useRef(null);
   const [showHeader, setShowHeader] = useState(false);
 
@@ -54,29 +56,29 @@ export default function Herobgvideo(){
        <main className={`relative bg-black min-h-screen overflow-x-hidden`}>
       {/* Hero Section */}
       <section
-        ref={heroRef}
-        className="relative w-full flex flex-col bg-black overflow-hidden overflow-y-hidden lg:min-h-screen"
-        style={{ height: '100dvh' }}
-      >
-        {heroVideos.map((src, idx) => (
-          idx !== activeIndex ? (
-            <video
-              key={src}
-              src={src}
-              preload="auto"
-              style={{ display: 'none' }}
-            />
-          ) : null
-        ))}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          src={heroVideos[activeIndex]}
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        />
-      </section>
+  ref={heroRef}
+  className="relative w-full flex flex-col bg-black overflow-hidden overflow-y-hidden lg:min-h-screen"
+  style={{ height: '100dvh' }}
+
+  
+>
+
+  {heroVideos.map((src, idx) => (
+    <video
+      key={src}
+      autoPlay
+      loop
+      muted
+      playsInline
+      src={src}
+      preload="auto"
+      className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+        activeIndex === idx ? 'opacity-100' : 'opacity-0'
+      }`}
+    />
+  ))}
+</section>
+
     </main>
     );
 }
