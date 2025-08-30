@@ -1,23 +1,46 @@
+// app/page.js
 import Herobgvideo from '@/components/Hero/Herobgvideo';
-import React from 'react';
 import Subsidariesbar from "@/components/Hero/Subsidariesbar";
-import NavDots from '../components/Hero/HeroSection';
+import AboutCare from '../components/about/about';
+import Enquiry from '../components/enquiry/enquiry';
+import Financials from '../components/financials/financials';
+import Commitment from '../components/commitment/committment';
+import AdminAccessModal from '../components/AdminAccessModal';
 
 export default function Home() {
   return (
-    <section className="relative w-full h-screen">
-      {/* Background video */}
-      <Herobgvideo />
-      
+    <>
+      {/* Admin Modal */}
+      <AdminAccessModal />
 
+      {/* Hero Section - Full viewport height */}
+      <section className="relative w-full h-screen overflow-hidden">
+        <Herobgvideo />
+        <div className="absolute bottom-0 left-0 w-full z-10">
+          <Subsidariesbar />
+        </div>
+      </section>
 
-      {/* Subsidiaries bar on top of video */}
-      <div className="absolute bottom-0 left-0 w-full z-10">
-        <Subsidariesbar />
-      </div>
-      <div className="relative min-h-screen bg-white w-full">
-        
-      </div>
-    </section>
+      {/* About Section */}
+<section id="about">
+  <AboutCare />
+</section>
+
+{/* Initiatives Section */}
+<section id="initiatives">
+  <Commitment />
+</section>
+
+{/* Financial Reports Section */}
+<section id="financials">
+  <Financials />
+</section>
+
+{/* enquiry Section */}
+<section id="enquiry">
+  <Enquiry/>
+</section>
+
+    </>
   );
 }
