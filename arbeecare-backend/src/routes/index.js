@@ -1,12 +1,12 @@
 import express from 'express';
-import reports from './reports.routes.js';
-import auth from './auth.routes.js';
-import enquiry from '../app/api/enquiry/route.js'; // <-- fix relative path
+import authRoutes from './auth.routes.js';
+import reportsRoutes from './reports.routes.js';
+import enquiryRoutes from './enquiry.routes.js'; // Import new enquiry routes
 
 const router = express.Router();
 
-router.use('/auth', auth);
-router.use('/reports', reports);
-router.use('/enquiry', enquiry);
+router.use('/auth', authRoutes);
+router.use('/reports', reportsRoutes);
+router.use('/enquiry', enquiryRoutes); // Use new enquiry routes
 
 export default router;

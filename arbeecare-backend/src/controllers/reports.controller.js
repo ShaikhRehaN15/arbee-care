@@ -15,29 +15,30 @@ export async function listReports(req, res) {
 
 export async function uploadReport(req, res) {
   try {
-    const { fields, file } = await parseMultipartForm(req);
+    const { fields, files } = await parseMultipartForm(req);
+
+    const file = files.file; // ✅ matches frontend FormData.append("file", ...)
+
+    if (!file) {
+      return res.status(400).json({ message: "No report file uploaded" });
+    }
 
     const newReport = await Report.create({
       title: fields.title || file.originalFilename,
       filePath: path.join('/uploads/reports', file.newFilename),
-      uploadedBy: req.user._id, // User is from requireAuth middleware
+      uploadedBy: req.user._id,
     });
 
     res.status(201).json(newReport);
   } catch (error) {
     console.error('Error uploading report:', error);
-    // Clean up uploaded file if DB save fails
-    if (error.filepath) {
-      fs.unlink(error.filepath, (err) => {
-        if (err) console.error('Error deleting temp file on upload error:', err);
-      });
-    }
     res.status(500).json({ message: 'Error uploading file' });
   }
 }
 
+
 export async function deleteReport(req, res) {
-  const { id } = req.params; // Get ID from URL parameters
+  const { id } = req.params;
 
   try {
     const report = await Report.findById(id);
@@ -59,3 +60,6 @@ export async function deleteReport(req, res) {
     res.status(500).json({ message: 'Server error' });
   }
 }
+
+// ✅ Add this export to fix the import erro };
+

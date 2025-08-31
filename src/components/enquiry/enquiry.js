@@ -75,7 +75,7 @@ export default function Enquiry() {
         </div>
 
         <div className="w-full bg-white p-[3vh]">
-          <div className="flex flex-col-reverse md:flex-row gap-[5vh] md:gap-[3vw]">
+          <div className="flex flex-col-reverse md:flex-row gap-[5vh] md:gap-[104px]">
             <div className="hidden md:block w-full max-w-[560px]">
               <div className="bg-[#052833] p-[5vh] flex flex-col gap-[6vh] w-full h-[627px]">
                 <div className="w-[35vw] max-w-[211px] aspect-square mx-auto md:mx-0">
@@ -104,7 +104,7 @@ export default function Enquiry() {
             </div>
 
             {/* Right form */}
-            <div className="w-full max-w-[600px] flex flex-col gap-[3vh]">
+            <div className="w-full max-w-[600px] flex flex-col gap-[3vh] ">
               <form ref={formRef} onSubmit={handleSubmit} className="w-full flex flex-col gap-[3vh]" encType="multipart/form-data" noValidate>
                 {/* name */}
                 <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
@@ -155,7 +155,7 @@ export default function Enquiry() {
                   <label className="text-[#6C6C6C] text-[2vh] cursor-pointer flex flex-row gap-2 items-center">
                     <span>Upload file</span>
                     <Image src="/Vector(3).svg" width={14} height={14} alt="upload" />
-                    <input name="address_proof" type="file" accept=".pdf,image/*" style={{ display: 'inline-block' }} />
+                    <input name="address_proof" type="file" accept=".pdf,image/*" style={{ display: 'none' }} />
                   </label>
                 </div>
 
@@ -171,7 +171,7 @@ export default function Enquiry() {
                   <label className="text-[#6C6C6C] text-[2vh] cursor-pointer flex flex-row gap-2 items-center">
                     <span>Upload file</span>
                     <Image src="/Vector(3).svg" width={14} height={14} alt="upload" />
-                    <input name="aadhaar_proof" type="file" accept=".pdf,image/*" style={{ display: 'inline-block' }} />
+                    <input name="aadhaar_proof" type="file" accept=".pdf,image/*" style={{ display: 'none' }} />
                   </label>
                 </div>
 
@@ -260,7 +260,7 @@ export default function Enquiry() {
                 </p>
 
                 <div className="flex items-center gap-3 justify-end">
-                  <button onClick={() => formRef.current?.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }))} className={`bg-[#052833] text-white text-[18px] px-6 py-2 rounded-none font-noto-sans ${loading ? "opacity-60 pointer-events-none" : ""}`}>
+                  <button type="submit" onClick={() => formRef.current?.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }))} className={`bg-[#052833] text-white text-[18px] px-6 py-2 rounded-none font-noto-sans ${loading ? "opacity-60 pointer-events-none" : ""}`}>
                     {loading ? "Processing..." : "Get Support"}
                   </button>
                 </div>
