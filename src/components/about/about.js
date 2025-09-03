@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function AboutCare() {
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-b from-[#1d1d1d] to-[#292929] items-center pt-[21.5vh] font-poppins">
+    <section className="relative w-full min-h-screen bg-gradient-to-b from-[#1d1d1d] to-[#292929] items-center pt-[21.5vh] font-poppins overflow-x-hidden">
       {/* Background watermark */}
       <div
         className="

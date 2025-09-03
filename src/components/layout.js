@@ -19,12 +19,13 @@ const navLinks = [
   { name: 'Financial Reports', href: '/#financials' },
 ];
 
-
 export default function Layout({ children, alwaysShowHeader = false }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(alwaysShowHeader);
+  const [activeSection, setActiveSection] = useState(pathname);
 
+  // ✅ Show header after scrolling
   useEffect(() => {
     if (alwaysShowHeader) return;
 
@@ -40,11 +41,48 @@ export default function Layout({ children, alwaysShowHeader = false }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [alwaysShowHeader]);
 
+  // ✅ Update activeSection on hash change (click-based)
+  useEffect(() => {
+    const updateHash = () => {
+      const newHash = window.location.hash;
+      setActiveSection(`${pathname}${newHash}`);
+    };
+
+    updateHash(); // run on mount
+    window.addEventListener('hashchange', updateHash);
+    return () => window.removeEventListener('hashchange', updateHash);
+  }, [pathname]);
+
+  // ✅ Scroll spy with IntersectionObserver
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            if (id === 'home') {
+              setActiveSection('/');
+            } else {
+              setActiveSection(`/#${id}`);
+            }
+          }
+        });
+      },
+      { threshold: 0.6 } // 60% of section must be visible
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => sections.forEach((section) => observer.unobserve(section));
+  }, []);
+
   return (
     <div className="relative w-full font-sans">
       {/* Conditional Sticky Header */}
       <header
-        className={`fixed top-0 left-0 w-full h-[60px] 2xl:h-[48px] z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full h-[60px] pr-[24px] md:pr-[0px] 2xl:h-[48px] z-50 transition-all duration-500 ${
           showHeader || alwaysShowHeader
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
@@ -56,9 +94,9 @@ export default function Layout({ children, alwaysShowHeader = false }) {
           boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
         }}
       >
-        <nav className="flex items-center justify-between w-full h-full">
+        <nav className="flex items-center justify-center w-full h-full">
           {/* Logo */}
-          <div className="flex items-center ml-[40px]">
+          <div className="flex items-center ml-[24px] md:ml-[40px]">
             <Image src="/Arbeelogo.svg" alt="arbee logo" width={119} height={32} priority />
           </div>
 
@@ -66,23 +104,26 @@ export default function Layout({ children, alwaysShowHeader = false }) {
           <ul className="hidden xl:flex flex-1 justify-center space-x-0">
             {navLinks.map((link) => (
               <li key={link.href} className="h-full">
-                <div className="p-5 pb-[14px] h-full flex items-center relative">
-                  <div className="flex items-end group" style={{ height: '19px' }}>
-                    <Link href={link.href}>
-                      <span
-                        className="text-white font-medium text-[11px] font-noto-sans flex items-center justify-center h-full min-w-[31.3px] leading-none"
-                      >
-                        {link.name}
-                      </span>
-                    </Link>
-                  </div>
+                <div className="p-5 pb-[14px] h-full flex hover:bg-[#ffffff20] transition-shadow duration-200 items-center relative group ">
+                  <Link href={link.href}>
+                  <span
+  className={`text-white font-medium text-[11px] font-noto-sans flex items-center justify-center h-full min-w-[31.3px] leading-none relative ${
+    activeSection !== link.href ? "group-hover:-translate-y-[1px]" : ""
+  }`}
+>
+ 
+                      {link.name}
+                    </span>
+                  </Link>
                   {/* Active underline */}
-                  {pathname === link.href && (
-                    <span className="absolute left-0 right-0 bottom-0 h-[2px] bg-white" style={{ borderRadius: 0 }} />
+                  {activeSection === link.href && (
+                    <span className="absolute left-0 right-0 bottom-[-2px] h-[2px] bg-white" />
                   )}
                   {/* Hover underline */}
-                  <span className="absolute left-0 right-0 bottom-0 h-[2px] bg-[#1ed6f7] opacity-0 group-hover:opacity-100 transition-opacity duration-150" style={{ borderRadius: 0 }} />
-                </div>
+                  
+                  <span className="absolute left-0 right-0 bottom-[-2px] h-[2px] bg-[#1ed6f7] opacity-0 group-hover:opacity-100 transition-opacity duration-150" />
+                  
+                  </div>
               </li>
             ))}
           </ul>
@@ -115,9 +156,9 @@ export default function Layout({ children, alwaysShowHeader = false }) {
 
         {/* Mobile Menu Overlay */}
         {menuOpen && (
-          <div className="fixed inset-0 z-50 bg-[#181818] h-screen flex flex-col">
-            <div className="flex items-center justify-between h-[56px] px-4 bg-gradient-to-r from-[#232323] to-[#181818] border-b border-[#232323]">
-              <Image src="/Arbee.svg" alt="arbee logo" width={120} height={40} priority />
+          <div className="fixed inset-0 z-50 bg-[#181818] h-screen w-full flex flex-col">
+            <div className="flex items-center justify-between h-[56px] p-[24px] bg-gradient-to-r from-[#232323] to-[#181818] border-b border-[#232323]">
+              <Image src="/Arbeelogo.svg" alt="arbee logo" width={120} height={40} priority />
               <button
                 onClick={() => setMenuOpen(false)}
                 className="text-white"
@@ -133,7 +174,9 @@ export default function Layout({ children, alwaysShowHeader = false }) {
                 <li key={link.href}>
                   <Link href={link.href}>
                     <span
-                      className="block text-white text-[16px] font-semibold py-4 px-6 border-b border-[#232323] text-right"
+                      className={`block text-[16px] font-semibold py-4 px-6 border-b border-[#232323] text-right ${
+                        activeSection === link.href ? 'text-[#1ed6f7]' : 'text-white'
+                      }`}
                       onClick={() => setMenuOpen(false)}
                     >
                       {link.name}
@@ -157,4 +200,3 @@ export default function Layout({ children, alwaysShowHeader = false }) {
     </div>
   );
 }
-//the thing i

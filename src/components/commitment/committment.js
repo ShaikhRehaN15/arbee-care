@@ -7,7 +7,7 @@ export default function Commitment() {
     <section
       className="
         min-h-screen lg:h-[100dvh] w-full 
-        px-[clamp(24px,calc(24px+(96*(100vw-320px)/704)),100px)]
+        px-[clamp(24px,calc(24px+(96*(100vw-320px)/704)),120px)]
         py-[clamp(24px,calc(24px+(48*(100vw-320px)/704)),64px)]
         bg-white font-poppins overflow-visible lg:overflow-hidden
         flex flex-col
@@ -52,12 +52,12 @@ export default function Commitment() {
         {/* Card 1 */}
         <div
           className="
-            bg-[#F5F5F5] w-full p-[2vh] flex flex-col justify-between
+            bg-[#F5F5F5] w-full pt-[60px] flex flex-col justify-between
             h-[clamp(120px,calc(160px-(40*(100vw-320px)/448)),160px)] 
             md:h-full
           "
         >
-          <h3 className="text-[#454545] font-lato font-light text-[clamp(20px,calc(20px+(4*(100vw-320px)/704)),24px)]">
+          <h3 className="text-[#454545] font-lato font-light text-[clamp(20px,calc(20px+(4*(100vw-320px)/704)),24px)] ">
           INITIAVTIVES THAT CREATE LASTING CHANGE
           </h3>
           <button className="text-[#052833] font-poppins font-bold border-2 border-[#052833] px-[2vh] py-[1vh] text-[clamp(12px,calc(12px+(2*(100vw-320px)/704)),14px)] w-fit hover:bg-[#1A1A1A] hover:text-white transition-colors">
@@ -86,8 +86,8 @@ export default function Commitment() {
             className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/30"></div>
-          <div className="absolute inset-0 flex items-start justify-center text-white p-[2vh] text-center">
-            <h4 className="text-[clamp(16px,calc(16px+(4*(100vw-320px)/704)),20px)] font-normal font-poppins">
+          <div className="absolute inset-0 flex items-start justify-center text-white pt-[60px] text-center">
+            <h4 className="text-[clamp(16px,calc(16px+(4*(100vw-320px)/704)),18px)] font-normal font-poppins">
             Healthcare Access
             </h4>
           </div>
@@ -114,7 +114,7 @@ export default function Commitment() {
             className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/30"></div>
-          <div className="absolute inset-0 flex items-start justify-center text-white p-[2vh] text-center">
+          <div className="absolute inset-0 flex items-start justify-center text-white pt-[60px] text-center">
             <h4 className="text-[clamp(16px,calc(16px+(4*(100vw-320px)/704)),20px)] font-normal font-poppins">
             Education & Skill Development
             </h4>
@@ -142,7 +142,7 @@ export default function Commitment() {
             className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/30"></div>
-          <div className="absolute inset-0 flex items-start justify-center text-white p-[2vh] text-center">
+          <div className="absolute inset-0 flex items-start justify-center text-white pt-[60px] text-center">
             <h4 className="text-[clamp(16px,calc(16px+(4*(100vw-320px)/704)),20px)] font-normal font-poppins">
              Sustainability & Environment
             </h4>

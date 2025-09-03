@@ -118,7 +118,7 @@ export default function Financials() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-xl z-50">Loading...</div>
       )}
 
-      <div className="flex-1 flex flex-col w-full px-[clamp(24px,calc(24px+(96*(100vw-320px)/704)),100px)] py-[clamp(4vh,6vh,8vh)]">
+      <div className="flex-1 flex flex-col w-full px-[clamp(24px,calc(24px+(96*(100vw-320px)/704)),120px)] py-[clamp(4vh,6vh,8vh)]">
         {/* Top Text Section */}
         <div className="flex flex-col gap-[clamp(2vh,3vh,4vh)]">
           <h1 className="font-bold font-noto-sans text-[clamp(28px,calc(28px+(28*(100vw-320px)/704)),46px)] text-white">

@@ -62,7 +62,8 @@ export default function Enquiry() {
 
   return (
     <main>
-      <section className="relative min-h-screen bg-[#fcfcfc] px-[5vw] py-[5vh] w-full">
+      <section className="relative min-h-screen bg-[#fcfcfc] px-[clamp(24px,calc(24px+(96*(100vw-320px)/704)),120px)]
+        py-[clamp(24px,calc(24px+(48*(100vw-320px)/704)),64px)] w-full overflow-hidden">
         <div className="mb-[4vh]">
           <div className="hidden md:block">
             <h1 className="font-noto-sans text-[6vw] md:text-[56px] font-bold text-[#323232]">Reach out. Let’s connect.</h1>
@@ -74,12 +75,12 @@ export default function Enquiry() {
           </div>
         </div>
 
-        <div className="w-full bg-white p-[3vh]">
+        <div className="w-full bg-[#FFFFFF] p-[3vh]">
           <div className="flex flex-col-reverse md:flex-row gap-[5vh] md:gap-[104px]">
             <div className="hidden md:block w-full max-w-[560px]">
               <div className="bg-[#052833] p-[5vh] flex flex-col gap-[6vh] w-full h-[627px]">
                 <div className="w-[35vw] max-w-[211px] aspect-square mx-auto md:mx-0">
-                  <Image src="/Arbeelogo.svg" alt="flower arbee" width={211} height={211} />
+                  <Image src="/Arbee (1).svg" alt="flower arbee" width={211} height={211} />
                 </div>
                 <div className="flex flex-col gap-[4vh] text-white text-[16px]">
                   <div className="flex flex-row items-center gap-[2vw]">
@@ -107,15 +108,15 @@ export default function Enquiry() {
             <div className="w-full max-w-[600px] flex flex-col gap-[3vh] ">
               <form ref={formRef} onSubmit={handleSubmit} className="w-full flex flex-col gap-[3vh]" encType="multipart/form-data" noValidate>
                 {/* name */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Name of the applicant</label>
                   <input name="name" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="Enter your name" type="text" required />
                 </div>
 
                 {/* age + sex side by side */}
-<div className="flex flex-row gap-[2vw] w-full">
+<div className="flex flex-row gap-[24px] w-full">
   {/* age */}
-  <div className="w-1/2 border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+  <div className="w-full md:w-1/2 border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
     <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Age of the applicant</label>
     <input
       name="age"
@@ -127,7 +128,7 @@ export default function Enquiry() {
   </div>
 
   {/* sex */}
-  <div className="w-1/2 border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+  <div className="w-full md:w-1/2 border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
     <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Sex of the applicant</label>
     <select
       name="sex"
@@ -144,13 +145,13 @@ export default function Enquiry() {
 </div>
 
                 {/* address */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Residential Address</label>
                   <input name="address" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="Enter your current address" type="text" required />
                 </div>
 
                 {/* proof of residence (file) */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Proof of Address (upload)</label>
                   <label className="text-[#6C6C6C] text-[2vh] cursor-pointer flex flex-row gap-2 items-center">
                     <span>Upload file</span>
@@ -160,13 +161,13 @@ export default function Enquiry() {
                 </div>
 
                 {/* Aadhaar */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Aadhaar Card Number</label>
                   <input name="aadhaar" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="Enter your Aadhaar card number" type="text" />
                 </div>
 
                 {/* Aadhaar proof (file) */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Proof of Aadhaar (upload)</label>
                   <label className="text-[#6C6C6C] text-[2vh] cursor-pointer flex flex-row gap-2 items-center">
                     <span>Upload file</span>
@@ -176,7 +177,7 @@ export default function Enquiry() {
                 </div>
 
                 {/* Aid required options (radio) */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col gap-2">
+                <div className="w-full py-[1vh] px-[16px] flex flex-col gap-2">
                   <label className="font-noto-sans text-[12px] text-[#9C9C9C]">Nature of Aid Required</label>
                   {[
                     "House Construction/Renovation",
@@ -194,25 +195,25 @@ export default function Enquiry() {
                 </div>
 
                 {/* Amount (number) */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Amount of Financial Aid (in numbers)</label>
                   <input name="amount_figures" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="Enter the amount in figures" type="number" required />
                 </div>
 
                 {/* Amount (words) */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Amount in Words</label>
                   <input name="amount_words" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="Enter the amount in words" type="text" required />
                 </div>
 
                 {/* Aid details */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Aid Details</label>
                   <input name="aid_details" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="For Eg: I want the aid for higher studies in..." required />
                 </div>
 
                 {/* Applied for funding */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Applied for funding from any NGO/Agency?</label>
                   <select name="applied_other" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" required>
                     <option value="">select</option>
@@ -222,20 +223,14 @@ export default function Enquiry() {
                   </select>
                 </div>
 
-                {/* Organisation URL */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
-                  <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Organisation URL</label>
-                  <input name="organisation_url" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="Enter the URL of the organisation" type="url" required />
-                </div>
-
                 {/* email */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Email</label>
                   <input name="email" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="Enter your mail ID" type="email" required />
                 </div>
 
                 {/* Topic of enquiry */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">What do you want to know about?</label>
                   <select name="topic_enquiry" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" required>
                     <option value="">select</option>
@@ -247,7 +242,7 @@ export default function Enquiry() {
                 </div>
 
                 {/* comments */}
-                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[2vw] flex flex-col">
+                <div className="w-full border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
                   <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Comments</label>
                   <input name="comments" className="text-[2vh] text-[#6C6C6C] font-noto-sans outline-none" placeholder="Write your comments here" type="text" required />
                 </div>
@@ -274,9 +269,9 @@ export default function Enquiry() {
 
       {/* Desktop Footer */}
 <footer className="hidden md:block w-full bg-white px-[120px] py-[60px]">
-  <div className="grid grid-cols-6 gap-8 items-start">
-    {/* Arbee Logo */}
-    <div className="flex items-center">
+  <div className="flex justify-between items-start w-full">
+    {/* Arbee Logo (left) */}
+    <div className="flex items-center flex-shrink-0">
       <Image
         src="/Arbeelogo.svg"
         alt="Arbee Logo"
@@ -286,26 +281,28 @@ export default function Enquiry() {
       />
     </div>
 
-    {/* Footer Nav Sections */}
-    {footerData.map((section) => (
-      <div key={section.title} className="flex flex-col gap-1">
-        <h4 className="font-bold text-[#323232] text-sm whitespace-nowrap">
-          {section.title}
-        </h4>
-        {section.links.map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            className="text-[#666666] hover:text-[#323232] transition-colors text-[12px] whitespace-nowrap"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-    ))}
+    {/* Footer Nav Sections (center) */}
+    <div className="flex flex-wrap justify-center gap-8 flex-grow">
+      {footerData.map((section) => (
+        <div key={section.title} className="flex flex-col gap-0.5">
+          <h4 className="font-bold text-[#323232] text-sm whitespace-nowrap">
+            {section.title}
+          </h4>
+          {section.links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="text-[#666666] hover:text-[#323232] transition-colors text-[12px] whitespace-nowrap"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      ))}
+    </div>
 
-    {/* SDG Logo */}
-    <div className="flex items-center justify-end">
+    {/* SDG Logo (right) */}
+    <div className="flex items-center justify-end flex-shrink-0">
       <Image
         src="/sdg-logo.svg"
         alt="Sustainable Development Goals"
@@ -327,6 +324,7 @@ export default function Enquiry() {
     </div>
   </div>
 </footer>
+
 
       {/* Mobile Footer */}
       <footer className="md:hidden w-full bg-white px-4 py-6">

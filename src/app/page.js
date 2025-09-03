@@ -14,7 +14,7 @@ export default function Home() {
       <AdminAccessModal />
 
       {/* Hero Section - Full viewport height */}
-      <section className="relative w-full h-screen overflow-hidden">
+      <section className="relative w-full h-[100dvh] overflow-hidden">
         <Herobgvideo />
         <div className="absolute bottom-0 left-0 w-full z-10">
           <Subsidariesbar />
