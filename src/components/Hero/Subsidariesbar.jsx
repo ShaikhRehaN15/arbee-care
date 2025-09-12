@@ -72,7 +72,7 @@ export default function Subsidiariesbar() {
     <div className="relative w-full">
       {/* Hero Title - Now in normal flow with margins */}
       <h1
-        className="text-[clamp(40px,10vw,109px)] text-white font-poppins font-semibold ml-[34px] mb-[0px] flex items-center"
+        className="text-[clamp(40px,10vw,109px)] text-white font-poppins font-semibold ml-[24px] mb-[0px] flex items-center"
       >
         <span>arbee</span>
         <span

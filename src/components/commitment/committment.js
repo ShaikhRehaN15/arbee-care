@@ -45,22 +45,24 @@ export default function Commitment() {
           grid
           grid-cols-1
           md:grid-cols-4
-          mt-[clamp(32px,calc(32px+(16*(100vw-320px)/704)),48px)]
+          h-[580px]
+          lg:h-full
+          mt-[32px]
           flex-1
         "
       >
         {/* Card 1 */}
         <div
           className="
-            bg-[#F5F5F5] w-full pt-[60px] flex flex-col justify-between
-            h-[clamp(120px,calc(160px-(40*(100vw-320px)/448)),160px)] 
+            bg-[#F5F5F5] w-full pt-[60px] px-2 lg:px-4 flex flex-col justify-between
+            h-[160px]
             md:h-full
           "
         >
           <h3 className="text-[#454545] font-lato font-light text-[clamp(20px,calc(20px+(4*(100vw-320px)/704)),24px)] ">
-          INITIAVTIVES THAT CREATE LASTING CHANGE
+          INITIATIVES THAT CREATE LASTING CHANGE
           </h3>
-          <button className="text-[#052833] font-poppins font-bold border-2 border-[#052833] px-[2vh] py-[1vh] text-[clamp(12px,calc(12px+(2*(100vw-320px)/704)),14px)] w-fit hover:bg-[#1A1A1A] hover:text-white transition-colors">
+          <button className=" hidden lg:block text-[#052833] font-poppins font-bold border-2 border-[#052833] px-[2vh] py-[1vh] text-[clamp(12px,calc(12px+(2*(100vw-320px)/704)),14px)] w-fit hover:bg-[#1A1A1A] hover:text-white transition-colors">
             KNOW MORE
           </button>
         </div>
@@ -69,7 +71,7 @@ export default function Commitment() {
         <div
           className="
             relative group cursor-pointer overflow-hidden
-            h-[clamp(100px,calc(140px-(40*(100vw-320px)/448)),140px)]
+            h-[140px]
             md:h-full
           "
         >
@@ -97,7 +99,7 @@ export default function Commitment() {
         <div
           className="
             relative group cursor-pointer overflow-hidden
-            h-[clamp(100px,calc(140px-(40*(100vw-320px)/448)),140px)]
+            h-[140px]
             md:h-full
           "
         >
@@ -125,7 +127,7 @@ export default function Commitment() {
         <div
           className="
             relative group cursor-pointer overflow-hidden
-            h-[clamp(100px,calc(140px-(40*(100vw-320px)/448)),140px)]
+            h-[140px] 
             md:h-full
           "
         >

@@ -116,7 +116,7 @@ export default function Enquiry() {
                 {/* age + sex side by side */}
 <div className="flex flex-row gap-[24px] w-full">
   {/* age */}
-  <div className="w-full md:w-1/2 border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
+  <div className="w-1/2 md:w-1/2 border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
     <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Age of the applicant</label>
     <input
       name="age"
@@ -128,7 +128,7 @@ export default function Enquiry() {
   </div>
 
   {/* sex */}
-  <div className="w-full md:w-1/2 border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
+  <div className="w-1/2 md:w-1/2 border border-[#CBCBCB] py-[1vh] px-[16px] flex flex-col">
     <label className="font-noto-sans text-[1.5vh] text-[#9C9C9C]">Sex of the applicant</label>
     <select
       name="sex"
