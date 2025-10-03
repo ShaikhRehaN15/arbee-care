@@ -1,9 +1,10 @@
 [build]
   command = "npm run build"
-  publish = "netlify"  # Netlify plugin generates this folder for SSR
+  publish = ""   # leave empty, plugin sets it automatically
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
 
 [build.environment]
   NODE_VERSION = "20"
