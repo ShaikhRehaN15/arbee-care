@@ -79,7 +79,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
   }, []);
 
   return (
-    <div className="relative w-full font-sans">
+    <div className="relative w-full font-poppins">
       {/* Conditional Sticky Header */}
       <header
         className={`fixed top-0 left-0 w-full h-[60px] pr-[24px] md:pr-[0px] 2xl:h-[48px] z-50 transition-all duration-500 ${
@@ -107,7 +107,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
                 <div className="p-5 pb-[14px] h-full flex hover:bg-[#ffffff20] transition-shadow duration-200 items-center relative group ">
                   <Link href={link.href}>
                   <span
-  className={`text-white font-medium text-[11px] font-noto-sans flex items-center justify-center h-full min-w-[31.3px] leading-none relative ${
+  className={`text-white font-medium text-[11px] font-poppins flex items-center justify-center h-full min-w-[31.3px] leading-none relative ${
     activeSection !== link.href ? "group-hover:-translate-y-[1px]" : ""
   }`}
 >

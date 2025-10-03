@@ -43,7 +43,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
   }, [alwaysShowHeader]);
 
   return (
-    <div className="relative w-full font-sans">
+    <div className="relative w-full font-poppins">
       {/* Conditional Sticky Header */}
       <header
         className={`fixed top-0 left-0 w-full h-[60px] 2xl:h-[48px] z-50 transition-all duration-500 ${

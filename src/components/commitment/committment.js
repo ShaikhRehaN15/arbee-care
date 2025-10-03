@@ -79,14 +79,9 @@ export default function Commitment() {
             src="/safeguarding.png"
             alt="Safeguarding Marine Life"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 grayscale group-hover:grayscale-0 group-hover:scale-110"
           />
-          <Image
-            src="/Sustainability - 001.webp"
-            alt="Safeguarding Marine Life Hover"
-            fill
-            className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110"
-          />
+         
           <div className="absolute inset-0 bg-black/30"></div>
           <div className="absolute inset-0 flex items-start justify-center text-white pt-[60px] text-center">
             <h4 className="text-[clamp(16px,calc(16px+(4*(100vw-320px)/704)),18px)] font-normal font-poppins">
@@ -107,14 +102,9 @@ export default function Commitment() {
             src="/education.png"
             alt="Responsible Resource Management"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 grayscale group-hover:grayscale-0 group-hover:scale-110"
           />
-          <Image
-            src="/Sustainability - 002.webp"
-            alt="Responsible Resource Management Hover"
-            fill
-            className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110"
-          />
+        
           <div className="absolute inset-0 bg-black/30"></div>
           <div className="absolute inset-0 flex items-start justify-center text-white pt-[60px] text-center">
             <h4 className="text-[clamp(16px,calc(16px+(4*(100vw-320px)/704)),20px)] font-normal font-poppins">
@@ -135,14 +125,9 @@ export default function Commitment() {
             src="/sustainability.png"
             alt="Powering a Sustainable Future"
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-cover transition-transform duration-500 grayscale group-hover:grayscale-0 group-hover:scale-110"
           />
-          <Image
-            src="/Sustainability - 003.webp"
-            alt="Powering a Sustainable Future Hover"
-            fill
-            className="object-cover absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-110"
-          />
+         
           <div className="absolute inset-0 bg-black/30"></div>
           <div className="absolute inset-0 flex items-start justify-center text-white pt-[60px] text-center">
             <h4 className="text-[clamp(16px,calc(16px+(4*(100vw-320px)/704)),20px)] font-normal font-poppins">

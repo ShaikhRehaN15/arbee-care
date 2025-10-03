@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "bcryptjs": "^3.0.2",
     "jsonwebtoken": "^9.0.2",
     "lottie-react": "^2.4.1",
