@@ -1,9 +1,10 @@
 [build]
   command = "npm run build"
-  publish = ""   # leave empty, plugin sets it automatically
+  publish = ".next"   # leave empty, plugin sets it automatically
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+  inputs = { appPath = "src/app" }
 
 
 [build.environment]
