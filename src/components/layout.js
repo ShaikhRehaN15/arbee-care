@@ -104,20 +104,20 @@ export default function Layout({ children, alwaysShowHeader = false }) {
           <ul className="hidden xl:flex flex-1 justify-center space-x-0">
             {navLinks.map((link) => (
               <li key={link.href} className="h-full">
-                <div className="p-5 pb-[14px] h-full flex hover:bg-[#ffffff20] transition-shadow duration-200 items-center relative group ">
+                <div className="h-full flex hover:bg-[#ffffff20] transition-shadow duration-200 items-center relative group ">
                   <Link href={link.href}>
                   <span
-  className={`text-white font-medium text-[11px] font-poppins flex items-center justify-center h-full min-w-[31.3px] leading-none relative ${
+  className={`text-white font-medium text-[11px] font-poppins flex items-center justify-center h-full min-w-[31.3px] leading-none relative p-5 pb-[14px] ${
     activeSection !== link.href ? "group-hover:-translate-y-[1px]" : ""
   }`}
 >
- 
+
                       {link.name}
                     </span>
                   </Link>
                   {/* Active underline */}
                   {activeSection === link.href && (
-                    <span className="absolute left-0 right-0 bottom-[-2px] h-[2px] bg-white" />
+                    <span className="absolute left-0 right-0 bottom-0 h-[2px] bg-white" />
                   )}
                   {/* Hover underline */}
                   
@@ -129,13 +129,13 @@ export default function Layout({ children, alwaysShowHeader = false }) {
           </ul>
 
           {/* Desktop Enquire Button */}
-          <Link href="/enquiry" className="hidden xl:block ml-4" style={{ width: '140px', height: '47.73px' }}>
-            <div style={{ width: '140px', height: '47.73px' }}>
+          <Link href="/enquiry" className="hidden xl:block ml-4 h-[60px] 2xl:h-[48px]">
+            <div className="w-full h-full">
               <Lottie
                 path={ENQUIRE_ANIMATION_PATH}
                 loop={true}
                 autoplay={true}
-                style={{ width: '140px', height: '47.73px', pointerEvents: 'none' }}
+                style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
               />
             </div>
           </Link>
