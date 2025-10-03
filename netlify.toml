@@ -3,7 +3,6 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-  inputs = { appPath = "src/app" }
 
 [build.environment]
   NODE_VERSION = "20"
