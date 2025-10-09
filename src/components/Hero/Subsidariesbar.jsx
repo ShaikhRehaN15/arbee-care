@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import Image from 'next/image';
+import Link from 'next/link';
 import { useActiveIndexStore } from '@/store/useActiveIndexStore';
 
 const subsidiaries = ['', 'aquatic', 'biomarine', 'care'];
@@ -53,7 +54,15 @@ const heroSubtitles = [
 export default function Subsidiariesbar() {
   const { activeIndex, setActiveIndex } = useActiveIndexStore();
   const [shouldFade, setShouldFade] = useState(false);
-  const [visibleText, setVisibleText] = useState('');
+  const [visibleText, setVisibleText] = useState(subsidiaries[activeIndex]);
+
+  const handleAnchorClick = (id) => (e) => {
+    e.preventDefault();
+    const el = typeof document !== 'undefined' ? document.getElementById(id) : null;
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
 
   const handleLogoClick = (index) => {
     if (index === activeIndex) return;
@@ -93,7 +102,7 @@ export default function Subsidiariesbar() {
             flex flex-col md:flex-row md:items-center md:justify-between
             ${activeIndex === 0
               ? 'h-[150px] py-[24px] sm:h-[130px] md:h-[80px] sm:text-[28px] md:px-[34px]'
-              : 'h-[80px] py-[14px] md:h-[80px] px-[24px] md:px-[34px]'
+              : 'h-[140px] py-[14px] md:h-[80px] px-[24px] md:px-[34px]'
             } md:py-0`}
         >
           <div className="text-white text-[18px] font-normal text-left md:text-[18px]">
@@ -101,26 +110,90 @@ export default function Subsidiariesbar() {
           </div>
 
           {/* Desktop buttons */}
-          {activeIndex === 0 && (
-            <div className="hidden md:flex gap-4 justify-end">
-              <button className="font-semibold h-[38px] w-[136px] text-[14px] bg-[#052833] text-white flex items-center justify-center tracking-wide">
-                About Arbee
-              </button>
-              <button className="font-semibold h-[37.6px] w-[157px] text-[14px] bg-[#FFFFFF4D] border-1 text-white flex items-center justify-center tracking-wide">
-                Arbee's History
-              </button>
+          {(activeIndex === 0 || activeIndex === 3) && (
+            <div className="hidden md:flex gap-4 justify-end z-30 relative">
+              {activeIndex === 0 && (
+                <>
+                  <a
+                    href="https://arbeegroup.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold h-[38px] w-[136px] text-[14px] bg-[#052833] text-white flex items-center justify-center tracking-wide"
+                  >
+                    Visit Website
+                  </a>
+                  <a
+                    href="https://arbeegroup.org/enquiry/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold h-[37.6px] w-[157px] text-[14px] bg-[#FFFFFF4D] border-1 text-white flex items-center justify-center tracking-wide"
+                  >
+                    Enquire Now
+                  </a>
+                </>
+              )}
+              {activeIndex === 3 && (
+                <>
+                  <Link
+                    href="#about-care"
+                    onClick={handleAnchorClick('about-care')}
+                    className="font-semibold h-[38px] w-[180px] text-[14px] bg-[#052833] text-white flex items-center justify-center tracking-wide"
+                  >
+                    Know More
+                  </Link>
+                  <Link
+                    href="#get-support"
+                    onClick={handleAnchorClick('get-support')}
+                    className="font-semibold h-[37.6px] w-[157px] text-[14px] bg-[#FFFFFF4D] border-1 text-white flex items-center justify-center tracking-wide"
+                  >
+                    Get Support
+                  </Link>
+                </>
+              )}
             </div>
           )}
 
           {/* Mobile buttons */}
-          {activeIndex === 0 && (
-            <div className="flex gap-[10px] w-full md:hidden mt-[22px]">
-              <button className="w-full font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#052833] text-white tracking-wide">
-                About Arbee
-              </button>
-              <button className="w-full font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#FFFFFF4D] border-2 text-white tracking-wide">
-                Arbee's History
-              </button>
+          {(activeIndex === 0 || activeIndex === 3) && (
+            <div className="flex gap-[10px] w-full md:hidden mt-[22px] z-30 relative">
+              {activeIndex === 0 && (
+                <>
+                  <a
+                    href="https://arbeegroup.org/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#052833] text-white tracking-wide text-center flex items-center justify-center"
+                  >
+                    Visit Website
+                  </a>
+                  <a
+                    href="https://arbeegroup.org/enquiry/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#FFFFFF4D] border-2 text-white tracking-wide text-center flex items-center justify-center"
+                  >
+                    Enquire Now
+                  </a>
+                </>
+              )}
+              {activeIndex === 3 && (
+                <>
+                  <Link
+                    href="#about-care"
+                    onClick={handleAnchorClick('about-care')}
+                    className="w-full font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#052833] text-white tracking-wide text-center flex items-center justify-center"
+                  >
+                    About Arbee Care
+                  </Link>
+                  <Link
+                    href="#get-support"
+                    onClick={handleAnchorClick('get-support')}
+                    className="w-full font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#FFFFFF4D] border-2 text-white tracking-wide text-center flex items-center justify-center"
+                  >
+                    Get Support
+                  </Link>
+                </>
+              )}
             </div>
           )}
         </div>

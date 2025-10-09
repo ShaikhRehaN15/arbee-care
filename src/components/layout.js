@@ -129,7 +129,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
           </ul>
 
           {/* Desktop Enquire Button */}
-          <Link href="/enquiry" className="hidden xl:block ml-4 h-[60px] 2xl:h-[48px]">
+          <Link href="https://arbeegroup.org/enquiry/" className="hidden xl:block ml-4 h-[60px] 2xl:h-[48px]">
             <div className="w-full h-full">
               <Lottie
                 path={ENQUIRE_ANIMATION_PATH}
