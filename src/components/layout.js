@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import LoadingScreen from './LoadingScreen';
+import useLoadingStore from '../store/useLoadingStore';
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
@@ -24,6 +26,16 @@ export default function Layout({ children, alwaysShowHeader = false }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHeader, setShowHeader] = useState(alwaysShowHeader);
   const [activeSection, setActiveSection] = useState(pathname);
+  const { isLoading, hideLoading } = useLoadingStore();
+
+  // Hide loading screen after initial load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      hideLoading();
+    }, 3000); // Show loading for 3 seconds
+
+    return () => clearTimeout(timer);
+  }, [hideLoading]);
 
   // ✅ Show header after scrolling
   useEffect(() => {
@@ -80,6 +92,13 @@ export default function Layout({ children, alwaysShowHeader = false }) {
 
   return (
     <div className="relative w-full font-poppins">
+      {/* Loading Screen */}
+      <LoadingScreen 
+        isLoading={isLoading} 
+        onComplete={hideLoading}
+        duration={3000}
+      />
+      
       {/* Conditional Sticky Header */}
       <header
         className={`fixed top-0 left-0 w-full h-[60px] pr-[24px] md:pr-[0px] 2xl:h-[48px] z-50 transition-all duration-500 ${
