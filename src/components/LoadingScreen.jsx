@@ -6,7 +6,7 @@ import animationData from '../../public/Arbee - Logo - Reveal.json';
 export default function LoadingScreen({ 
   isLoading = true, 
   onComplete,
-  duration = 3000 // Default 3 seconds
+  duration = 7500 // Default 12 seconds to match animation length
 }) {
   const [showLoading, setShowLoading] = useState(isLoading);
 
@@ -39,6 +39,13 @@ export default function LoadingScreen({
           loop={false}
           autoplay={true}
           style={{ width: '100%', height: '100%' }}
+          onComplete={() => {
+            // Animation completed, trigger completion after a brief delay
+            setTimeout(() => {
+              setShowLoading(false);
+              if (onComplete) onComplete();
+            }, 1000);
+          }}
         />
       </div>
     </div>

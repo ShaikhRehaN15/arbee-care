@@ -32,7 +32,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       hideLoading();
-    }, 3000); // Show loading for 3 seconds
+    }, 12000); // Show loading for 12 seconds to ensure full animation plays
 
     return () => clearTimeout(timer);
   }, [hideLoading]);
@@ -96,7 +96,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
       <LoadingScreen 
         isLoading={isLoading} 
         onComplete={hideLoading}
-        duration={3000}
+        duration={7500}
       />
       
       {/* Conditional Sticky Header */}
