@@ -56,9 +56,7 @@ export default function AboutCare() {
 
 
         {/* Button */}
-        <button className="border border-gray-400 text-white text-[14px] font-medium px-5 py-2 hover:bg-white hover:text-black transition duration-300">
-          Read more
-        </button>
+        
       </div>
     </section>
   );
