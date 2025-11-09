@@ -12,7 +12,7 @@ import useLoadingStore from '../store/useLoadingStore';
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 // ✅ Public path to Lottie animation
-const ENQUIRE_ANIMATION_PATH = '/animations/Enquire-Now-CTA-Button-Animation.json';
+const ENQUIRE_ANIMATION_PATH = '/animations/Get-Support-Animation.json';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -101,7 +101,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
       
       {/* Conditional Sticky Header */}
       <header
-        className={`fixed top-0 left-0 w-full h-[60px] pr-[24px] md:pr-[0px] 2xl:h-[48px] z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 w-full h-[60px] pr-[24px] lg:pr-[0px] 2xl:h-[48px] z-50 transition-all duration-500 ${
           showHeader || alwaysShowHeader
             ? 'opacity-100 pointer-events-auto'
             : 'opacity-0 pointer-events-none'
@@ -116,7 +116,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
         <nav className="flex items-center justify-center w-full h-full">
           {/* Logo */}
           <div className="flex items-center ml-[24px] md:ml-[40px]">
-            <Image src="/Arbeelogo.svg" alt="arbee logo" width={119} height={32} priority />
+            <Image src="/Arbee-Care-Full.svg" alt="arbee logo" width={137} height={24} priority />
           </div>
 
           {/* Desktop Nav */}
@@ -165,7 +165,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Open menu"
           >
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <rect y="5" width="24" height="2" rx="1" fill="currentColor" />
               <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
               <rect y="17" width="24" height="2" rx="1" fill="currentColor" />
@@ -177,7 +177,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
         {menuOpen && (
           <div className="fixed inset-0 z-50 bg-[#181818] h-screen w-full flex flex-col">
             <div className="flex items-center justify-between h-[56px] p-[24px] bg-gradient-to-r from-[#232323] to-[#181818] border-b border-[#232323]">
-              <Image src="/Arbeelogo.svg" alt="arbee logo" width={120} height={40} priority />
+              <Image src="/Arbee-Care-Full.svg" alt="arbee logo" width={120} height={40} priority />
               <button
                 onClick={() => setMenuOpen(false)}
                 className="text-white"
@@ -204,10 +204,13 @@ export default function Layout({ children, alwaysShowHeader = false }) {
                 </li>
               ))}
               <li className="px-6 pb-6 pt-2">
-                <Link href="/enquiry">
-                  <span className="block w-full bg-gradient-to-r from-[#0099b3] to-[#005e6a] text-white font-semibold py-3 rounded text-center border-b-2 border-[#b3f0ff]">
-                    Enquire Now
-                  </span>
+                <Link href="/enquiry" className="block w-full h-[60px]">
+                  <Lottie
+                    path={ENQUIRE_ANIMATION_PATH}
+                    loop={true}
+                    autoplay={true}
+                    style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+                  />
                 </Link>
               </li>
             </ul>

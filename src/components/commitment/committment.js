@@ -54,15 +54,16 @@ export default function Commitment() {
         {/* Card 1 */}
         <div
           className="
-            bg-[#F5F5F5] w-full pt-[60px] px-2 lg:px-4 flex flex-col justify-between
+            bg-[#F5F5F5] w-full p-[32px] md:py-[60px] md:px-[32px] flex flex-col justify-between
             h-[160px]
             md:h-full
           "
         >
-          <h3 className="text-[#454545] font-lato font-light text-[clamp(20px,calc(20px+(4*(100vw-320px)/704)),24px)] ">
+          <h3 className="text-[#454545] font-lato font-regular text-[clamp(20px,calc(20px+(4*(100vw-320px)/704)),24px)] ">
           INITIATIVES THAT CREATE LASTING CHANGE
           </h3>
           
+         
         </div>
 
         {/* Card 2 */}

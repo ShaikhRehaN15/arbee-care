@@ -3,7 +3,11 @@ import React from "react";
 import { useState } from "react";
 import Image from 'next/image';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useActiveIndexStore } from '@/store/useActiveIndexStore';
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+const ENQUIRE_ANIMATION_PATH = '/animations/Get-Support-Animation.json';
 
 const subsidiaries = ['', 'aquatic', 'biomarine', 'care'];
 
@@ -128,9 +132,14 @@ export default function Subsidiariesbar() {
                     href="https://arbeegroup.org/enquiry/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold h-[37.6px] w-[157px] text-[14px] bg-[#FFFFFF4D] border-1 text-white flex items-center justify-center tracking-wide"
+                    className="h-[60px] w-[176px]"
                   >
-                    Enquire Now
+                    <Lottie
+                      path={ENQUIRE_ANIMATION_PATH}
+                      loop={true}
+                      autoplay={true}
+                      style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+                    />
                   </a>
                 </>
               )}
@@ -172,9 +181,14 @@ export default function Subsidiariesbar() {
                     href="https://arbeegroup.org/enquiry/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#FFFFFF4D] border-2 text-white tracking-wide text-center flex items-center justify-center"
+                    className="w-full h-[60px]"
                   >
-                    Enquire Now
+                    <Lottie
+                      path={ENQUIRE_ANIMATION_PATH}
+                      loop={true}
+                      autoplay={true}
+                      style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+                    />
                   </a>
                 </>
               )}

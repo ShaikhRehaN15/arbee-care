@@ -10,7 +10,7 @@ import dynamic from 'next/dynamic';
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 // ✅ Public path to Lottie animation
-const ENQUIRE_ANIMATION_PATH = '/animations/Enquire-Now-CTA-Button-Animation.json';
+const ENQUIRE_ANIMATION_PATH = '/animations/Get-Support-Animation.json';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -144,10 +144,13 @@ export default function Layout({ children, alwaysShowHeader = false }) {
                 </li>
               ))}
               <li className="px-6 pb-6 pt-2">
-                <Link href="/enquiry">
-                  <span className="block w-full bg-gradient-to-r from-[#0099b3] to-[#005e6a] text-white font-semibold py-3 rounded text-center border-b-2 border-[#b3f0ff]">
-                    Enquire Now
-                  </span>
+                <Link href="/enquiry" className="block w-full h-[60px]">
+                  <Lottie
+                    path={ENQUIRE_ANIMATION_PATH}
+                    loop={true}
+                    autoplay={true}
+                    style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+                  />
                 </Link>
               </li>
             </ul>

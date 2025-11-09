@@ -1,5 +1,10 @@
 import React, { useState } from "react";
+import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import "./featuredproducts.css"; // Create this CSS file for styling
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
+const ENQUIRE_ANIMATION_PATH = '/animations/Get-Support-Animation.json';
 
 const products = [
   {
@@ -42,7 +47,14 @@ export default function FeaturedProducts() {
           <p className="featured-product-desc">{products[current].description}</p>
           <div className="featured-buttons">
             <button className="view-product-btn">View Product</button>
-            <button className="enquire-btn">Enquire Now</button>
+            <Link href="/enquiry" className="enquire-btn h-[60px] w-[176px] inline-block">
+              <Lottie
+                path={ENQUIRE_ANIMATION_PATH}
+                loop={true}
+                autoplay={true}
+                style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+              />
+            </Link>
           </div>
         </div>
         <div className="featured-image-area">

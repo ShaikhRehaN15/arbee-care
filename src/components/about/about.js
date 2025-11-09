@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
+
 export default function AboutCare() {
   return (
     <section id="about-care" className="relative w-full min-h-screen bg-gradient-to-b from-[#1d1d1d] to-[#292929] items-center pt-[21.5vh] font-poppins overflow-x-hidden">
@@ -57,7 +58,7 @@ export default function AboutCare() {
 
         {/* Button */}
         <button className="border border-gray-400 text-white text-[14px] font-medium px-5 py-2 hover:bg-white hover:text-black transition duration-300 md:hidden">
-          Read more
+       
         </button>
       </div>
     </section>
