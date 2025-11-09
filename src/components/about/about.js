@@ -2,9 +2,18 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 
 export default function AboutCare() {
+  const handleAnchorClick = (id) => (e) => {
+    e.preventDefault();
+    const el = typeof document !== 'undefined' ? document.getElementById(id) : null;
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section id="about-care" className="relative w-full min-h-screen bg-gradient-to-b from-[#1d1d1d] to-[#292929] items-center pt-[21.5vh] font-poppins overflow-x-hidden">
       {/* Background watermark */}
@@ -57,9 +66,13 @@ export default function AboutCare() {
 
 
         {/* Button */}
-        <button className="border border-gray-400 text-white text-[14px] font-medium px-5 py-2 hover:bg-white hover:text-black transition duration-300 md:hidden">
-       
-        </button>
+        <Link
+          href="#get-support"
+          onClick={handleAnchorClick('get-support')}
+          className="md:block w-[132px] mb-[100px] font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#FFFFFF4D] border-2 text-white tracking-wide text-center flex items-center justify-center"
+        >
+          Get Support
+        </Link>
       </div>
     </section>
   );

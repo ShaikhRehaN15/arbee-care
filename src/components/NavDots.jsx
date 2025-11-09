@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from 'react';
 
-const NavDots = ({ activeIndex, onDotClick }) => {
+const NavDots = ({ activeIndex, onDotClick, className = "" }) => {
   const dots = ['arbeegroup', 'arbeeaquatic', 'arbeebiomarine', 'arbeecare'];
 
   return (
-    <div className="absolute top-[-22rem] sm:top-[9rem] right-[7%] lg:top-[15rem] right-[7%]  xl:top-[9rem] right-[7%]  flex items-center gap-2">
+    <div className={`absolute top-[-22rem] sm:top-[9rem] right-[7%] lg:top-[15rem] right-[7%]  xl:top-[9rem] right-[7%]  flex items-center gap-2 ${className}`}>
       <div className="relative flex items-center mt-[430px] gap-3">
         {/* Connecting lines */}
         <div className="absolute top-[40%] sm:top-[40%] -translate-y-1/2 z-0">

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useActiveIndexStore } from '@/store/useActiveIndexStore';
+import NavDots from '@/components/NavDots';
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 const ENQUIRE_ANIMATION_PATH = '/animations/Get-Support-Animation.json';
@@ -91,8 +92,8 @@ export default function Subsidiariesbar() {
         <span>arbee</span>
         <span
           key={activeIndex}
-          className={`transition-opacity duration-500 ease-in-out ml-0.5 ${
-            shouldFade ? 'opacity-100' : 'opacity-0'
+          className={`transition-all duration-500 ease-in-out ml-0.5 ${
+            shouldFade ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
           }`}
           style={{ fontWeight: 200 }}
         >
@@ -102,13 +103,22 @@ export default function Subsidiariesbar() {
 
       {/* Container for Blur Bar and Logo Bar */}
       <div className="relative">
+        {/* NavDots - Below lg: 40px from top, lg and above: 22px above blur bar, 120px from right */}
+        <div className="absolute right-[96px] top-[40px] lg:top-auto lg:bottom-[calc(100%+22px)]">
+          <NavDots 
+            activeIndex={activeIndex} 
+            onDotClick={handleLogoClick}
+            className="!relative !top-0 !right-0"
+          />
+        </div>
+
         {/* Semi-transparent Blur Bar */}
         <div
-          className={`w-full px-[24px] bg-black/30 backdrop-blur-md transition-all duration-300
-            flex flex-col md:flex-row md:items-center md:justify-between
+          className={`w-full p-[24px] bg-black/30 backdrop-blur-md transition-all duration-300
+            flex flex-col gap-[20px] md:flex-row md:items-center md:justify-between
             ${activeIndex === 0 || activeIndex === 3
-              ? 'h-[178px] py-[24px] sm:h-[130px] md:h-[80px] sm:text-[28px] md:px-[34px]'
-              : 'h-[140px] py-[14px] md:h-[80px] px-[24px] md:px-[34px]'
+              ? 'h-auto py-[24px] md:h-[80px] sm:text-[28px] md:px-[34px]'
+              : 'h-auto py-[14px] md:h-[80px] px-[24px] md:px-[34px]'
             } md:py-0`}
         >
           <div className="text-white text-[18px] font-poppins text-left md:text-[18px]" style={{ fontWeight: 400 }}>
@@ -124,23 +134,19 @@ export default function Subsidiariesbar() {
                     href="https://arbeegroup.org/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-semibold h-[38px] w-[136px] text-[14px] bg-[#052833] text-white flex items-center justify-center tracking-wide"
+                    className="font-semibold h-[44px] w-[136px] text-[14px] bg-[#052833] text-white flex items-center justify-center tracking-wide"
                   >
                     Visit Website
-                  </a>
+                  </a> 
                   <a
-                    href="https://arbeegroup.org/enquiry/"
+                    href="https://arbeegroup.org/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="h-[60px] w-[176px]"
+                   className="font-semibold h-[44px] w-[157px] text-[14px] bg-[#FFFFFF4D] border-1 text-white flex items-center justify-center tracking-wide"
                   >
-                    <Lottie
-                      path={ENQUIRE_ANIMATION_PATH}
-                      loop={true}
-                      autoplay={true}
-                      style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
-                    />
+                    Enquire Now
                   </a>
+                
                 </>
               )}
               {activeIndex === 3 && (
@@ -166,7 +172,7 @@ export default function Subsidiariesbar() {
 
           {/* Mobile buttons */}
           {(activeIndex === 0 || activeIndex === 3) && (
-            <div className="flex gap-[10px] w-full md:hidden mt-[22px] z-30 relative">
+            <div className="flex gap-[20px] w-full md:hidden z-30 relative">
               {activeIndex === 0 && (
                 <>
                   <a
@@ -178,18 +184,14 @@ export default function Subsidiariesbar() {
                     Visit Website
                   </a>
                   <a
-                    href="https://arbeegroup.org/enquiry/"
+                    href="https://arbeegroup.org/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full h-[60px]"
+                   className="w-full font-semibold h-[44px] w-[157px] text-[14px] bg-[#FFFFFF4D] border-1 text-white flex items-center justify-center tracking-wide"
                   >
-                    <Lottie
-                      path={ENQUIRE_ANIMATION_PATH}
-                      loop={true}
-                      autoplay={true}
-                      style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
-                    />
+                    Enquire Now
                   </a>
+                
                 </>
               )}
               {activeIndex === 3 && (
