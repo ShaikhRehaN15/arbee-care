@@ -136,7 +136,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
                   </Link>
                   {/* Active underline */}
                   {activeSection === link.href && (
-                    <span className="absolute left-0 right-0 bottom-0 h-[2px] bg-white" />
+                    <span className="absolute left-0 right-0 bottom-[-2px] h-[2px] bg-white" />
                   )}
                   {/* Hover underline */}
                   

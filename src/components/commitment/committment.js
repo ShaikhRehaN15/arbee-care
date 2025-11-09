@@ -62,9 +62,7 @@ export default function Commitment() {
           <h3 className="text-[#454545] font-lato font-light text-[clamp(20px,calc(20px+(4*(100vw-320px)/704)),24px)] ">
           INITIATIVES THAT CREATE LASTING CHANGE
           </h3>
-          <button className=" hidden lg:block text-[#052833] font-poppins font-bold border-2 border-[#052833] px-[2vh] py-[1vh] text-[clamp(12px,calc(12px+(2*(100vw-320px)/704)),14px)] w-fit hover:bg-[#1A1A1A] hover:text-white transition-colors">
-            KNOW MORE
-          </button>
+          
         </div>
 
         {/* Card 2 */}

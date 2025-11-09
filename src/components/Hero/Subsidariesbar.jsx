@@ -29,14 +29,14 @@ const mobileHeroLogos = [
     gray: '/Arbee-Biomarine-Short-Grey.svg',
     full: '/Arbee-Biomarine-Short.svg',
     width: 88.74,
-    height: 49.57,
+    height: 16,
     altGray: 'mobile arbee biomarine gray',
     altFull: 'mobile arbee biomarine',
   },
   {
     gray: '/Arbee-Care-Short-Grey.svg',
     full: '/Arbee-Care-Short.svg',
-    width: 49.67,
+    width: 49.57,
     height: 16,
     altGray: 'mobile arbee care gray',
     altFull: 'mobile arbee care',
@@ -45,15 +45,15 @@ const mobileHeroLogos = [
 
 const heroSubtitles = [
   'Ocean for Life | Pure Wellness, Naturally Sourced',
-  'Aquatic Division | Premium Fish Oil & Marine Extracts',
-  'Biomarine Division | Advanced Marine Ingredients',
-  'Care Division | Wellness & Nutrition Solutions',
+  'Harvesting Ocean’s Bounty for a Healthier World',
+  'From Ocean to Innovation | Ingredients for Life',
+  'Together for Good | Supporting Lives, Inspiring Change',
 ];
 
 // Default export for subsidiaries bar
 export default function Subsidiariesbar() {
   const { activeIndex, setActiveIndex } = useActiveIndexStore();
-  const [shouldFade, setShouldFade] = useState(false);
+  const [shouldFade, setShouldFade] = useState(activeIndex === 3);
   const [visibleText, setVisibleText] = useState(subsidiaries[activeIndex]);
 
   const handleAnchorClick = (id) => (e) => {
@@ -82,15 +82,17 @@ export default function Subsidiariesbar() {
       {/* Hero Title - Now in normal flow with margins */}
       <h1
         className="text-[clamp(40px,10vw,109px)] text-white font-Poppins font-semibold ml-[24px] mb-[0px] flex items-center"
+        style={{ fontWeight: 600 }}
       >
         <span>arbee</span>
         <span
           key={activeIndex}
-          className={`transition-opacity duration-500 ease-in-out font-light ml-2 ${
+          className={`transition-opacity duration-500 ease-in-out ml-0.5 ${
             shouldFade ? 'opacity-100' : 'opacity-0'
           }`}
+          style={{ fontWeight: 200 }}
         >
-          {activeIndex === 0 ? '' : visibleText}
+          {activeIndex === 0 ? '' : activeIndex === 3 ? ' care' : ` ${visibleText}`}
         </span>
       </h1>
 
@@ -100,12 +102,12 @@ export default function Subsidiariesbar() {
         <div
           className={`w-full px-[24px] bg-black/30 backdrop-blur-md transition-all duration-300
             flex flex-col md:flex-row md:items-center md:justify-between
-            ${activeIndex === 0
-              ? 'h-[150px] py-[24px] sm:h-[130px] md:h-[80px] sm:text-[28px] md:px-[34px]'
+            ${activeIndex === 0 || activeIndex === 3
+              ? 'h-[178px] py-[24px] sm:h-[130px] md:h-[80px] sm:text-[28px] md:px-[34px]'
               : 'h-[140px] py-[14px] md:h-[80px] px-[24px] md:px-[34px]'
             } md:py-0`}
         >
-          <div className="text-white text-[18px] font-normal text-left md:text-[18px]">
+          <div className="text-white text-[18px] font-poppins text-left md:text-[18px]" style={{ fontWeight: 400 }}>
             {heroSubtitles[activeIndex]}
           </div>
 
@@ -139,7 +141,7 @@ export default function Subsidiariesbar() {
                     onClick={handleAnchorClick('about-care')}
                     className="font-semibold h-[38px] w-[180px] text-[14px] bg-[#052833] text-white flex items-center justify-center tracking-wide"
                   >
-                    Know More
+                    About Arbee Care
                   </Link>
                   <Link
                     href="#get-support"
@@ -183,7 +185,7 @@ export default function Subsidiariesbar() {
                     onClick={handleAnchorClick('about-care')}
                     className="w-full font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#052833] text-white tracking-wide text-center flex items-center justify-center"
                   >
-                    About Arbee Care
+                    Know More
                   </Link>
                   <Link
                     href="#get-support"
@@ -199,7 +201,7 @@ export default function Subsidiariesbar() {
         </div>
 
         {/* Logo Bar */}
-        <div className="flex w-full h-[clamp(60px,5vw,71px)] gap-[16px] justify-center items-center bg-[#222]">
+        <div className="flex w-full h-[50px] gap-[16px] justify-center items-center bg-[#222]">
           {/* Mobile Logos */}
           {mobileHeroLogos.map((logo, idx) => (
             <div
