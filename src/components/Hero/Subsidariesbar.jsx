@@ -105,7 +105,7 @@ export default function Subsidiariesbar() {
       {/* Container for Blur Bar and Logo Bar */}
       <div className="relative">
         {/* NavDots - Below lg: 40px from top, lg and above: 22px above blur bar, 120px from right */}
-        <div className="absolute right-[96px] top-[40px] lg:top-auto lg:bottom-[calc(100%+22px)]">
+        <div className="absolute right-[96px] lg:top-auto lg:bottom-[calc(100%+22px)]">
           <NavDots 
             activeIndex={activeIndex} 
             onDotClick={handleLogoClick}
@@ -218,7 +218,7 @@ export default function Subsidiariesbar() {
         </div>
 
         {/* Logo Bar */}
-        <div className="flex w-full h-[50px] pb-[10px] gap-[10px] justify-center items-center bg-[#222]">
+        <div className="flex w-full h-[50px] gap-[10px] justify-center items-center bg-[#222]">
           {/* Mobile Logos */}
           {mobileHeroLogos.map((logo, idx) => (
             <div
@@ -232,7 +232,7 @@ export default function Subsidiariesbar() {
                 alt={logo.altGray}
                 width={logo.width}
                 height={logo.height}
-                className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 transition-opacity duration-200 ${
+                className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${
                   activeIndex === idx ? 'opacity-0' : 'opacity-100'
                 } ${activeIndex !== idx ? 'group-hover:brightness-150' : ''} w-full h-auto`}
               />
@@ -241,7 +241,7 @@ export default function Subsidiariesbar() {
                 alt={logo.altFull}
                 width={logo.width}
                 height={logo.height}
-                className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 transition-opacity duration-200 ${
+                className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${
                   activeIndex === idx ? 'opacity-100' : 'opacity-0'
                 } w-full h-auto`}
               />
@@ -249,7 +249,7 @@ export default function Subsidiariesbar() {
           ))}
 
           {/* Desktop Logos */}
-          <div className="hidden lg:flex z-20 justify-center items-center mb-4.5 gap-[8px] sm:gap-[16px] md:gap-[29px]">
+          <div className="hidden lg:flex z-20 justify-center items-center gap-[8px] sm:gap-[16px] md:gap-[29px]">
             {[0, 1, 2, 3].map((idx) => {
               const srcs = [
                 { gray: '/Arbeegroupgrey.svg', full: '/Arbeegroupfull.svg', w: 130.7, h:24 },
@@ -272,7 +272,7 @@ export default function Subsidiariesbar() {
                     alt={`${['group', 'aquatic', 'biomarine', 'care'][idx]} gray`}
                     width={w}
                     height={h}
-                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 mb-[5.5%] transition-opacity duration-200 ${
+                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${
                       activeIndex === idx ? 'opacity-0' : 'opacity-100'
                     } ${activeIndex !== idx ? 'group-hover:brightness-150' : ''} w-full h-auto`}
                   />
@@ -281,7 +281,7 @@ export default function Subsidiariesbar() {
                     alt={`${['group', 'aquatic', 'biomarine', 'care'][idx]}`}
                     width={w}
                     height={h}
-                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 mb-[5.5%] transition-opacity duration-200 ${
+                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${
                       activeIndex === idx ? 'opacity-100' : 'opacity-0'
                     } w-full h-auto`}
                   />

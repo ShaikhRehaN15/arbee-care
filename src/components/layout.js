@@ -37,7 +37,7 @@ export default function Layout({ children, alwaysShowHeader = false }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       hideLoading();
-    }, 12000); // Show loading for 12 seconds to ensure full animation plays
+    }, 13000); // Show loading for 12 seconds to ensure full animation plays
 
     return () => clearTimeout(timer);
   }, [hideLoading]);

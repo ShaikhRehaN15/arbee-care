@@ -2,6 +2,7 @@
 import React from 'react';
 import {useState,useRef,useEffect} from 'react';
 import { useActiveIndexStore } from '@/store/useActiveIndexStore';
+import NavDots from '@/components/NavDots';
 
 
 export default function Herobgvideo(){
@@ -77,6 +78,18 @@ export default function Herobgvideo(){
       }`}
     />
   ))}
+  
+  {/* NavDots - Below lg: 40px from top, 96px from right */}
+  <div
+  className="lg:hidden absolute z-10"
+  style={{
+    top: '-5%' ,
+    right: '10%',
+  }}
+>
+  <NavDots activeIndex={activeIndex} onDotClick={handleLogoClick} />
+</div>
+
 </section>
 
     </main>
