@@ -86,13 +86,14 @@ export default function Subsidiariesbar() {
     <div className="relative w-full">
       {/* Hero Title - Now in normal flow with margins */}
       <h1
-        className="text-[clamp(40px,10vw,109px)] text-white font-Poppins font-semibold ml-[24px] mb-[0px] flex items-center"
+        className="text-[clamp(40px,10vw,109px)] text-white font-Poppins font-semibold ml-[24px] flex flex-row flex-wrap items-center "
         style={{ fontWeight: 600 }}
       >
-        <span>arbee</span>
+        <span className="leading-none"
+        >arbee</span>
         <span
           key={activeIndex}
-          className={`transition-all duration-500 ease-in-out ml-0.5 ${
+          className={` text-[clamp(40px,10vw,109px)] leading-none transition-all duration-500 ease-in-out ml-0.5 ${
             shouldFade ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
           }`}
           style={{ fontWeight: 200 }}
@@ -115,7 +116,7 @@ export default function Subsidiariesbar() {
         {/* Semi-transparent Blur Bar */}
         <div
           className={`w-full p-[24px] bg-black/30 backdrop-blur-md transition-all duration-300
-            flex flex-col gap-[20px] md:flex-row md:items-center md:justify-between
+            flex flex-col gap-[20px] mt-[10px] md:flex-row md:items-center md:justify-between
             ${activeIndex === 0 || activeIndex === 3
               ? 'h-auto py-[24px] md:h-[80px] sm:text-[28px] md:px-[34px]'
               : 'h-auto py-[14px] md:h-[80px] px-[24px] md:px-[34px]'
@@ -172,7 +173,7 @@ export default function Subsidiariesbar() {
 
           {/* Mobile buttons */}
           {(activeIndex === 0 || activeIndex === 3) && (
-            <div className="flex gap-[20px] w-full md:hidden z-30 relative">
+            <div className="flex  gap-[20px] w-full md:hidden z-30 relative [@media(max-width:320px)]:flex-col">
               {activeIndex === 0 && (
                 <>
                   <a
@@ -217,7 +218,7 @@ export default function Subsidiariesbar() {
         </div>
 
         {/* Logo Bar */}
-        <div className="flex w-full h-[50px] gap-[16px] justify-center items-center bg-[#222]">
+        <div className="flex w-full h-[50px] pb-[10px] gap-[10px] justify-center items-center bg-[#222]">
           {/* Mobile Logos */}
           {mobileHeroLogos.map((logo, idx) => (
             <div

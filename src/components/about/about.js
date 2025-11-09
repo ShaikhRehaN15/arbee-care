@@ -69,7 +69,7 @@ export default function AboutCare() {
         <Link
           href="#get-support"
           onClick={handleAnchorClick('get-support')}
-          className="md:block w-[132px] mb-[100px] font-semibold h-[44px] text-[13px] sm:text-[14px] py-[10px] px-[15px] sm:px-[24px] bg-[#FFFFFF4D] border-2 text-white tracking-wide text-center flex items-center justify-center"
+          className="md:hidden w-[132px] mb-[100px] font-semibold h-[44px] text-[13px] py-[10px] px-[15px] bg-[#FFFFFF4D] border-2 text-white tracking-wide text-center flex items-center justify-center"
         >
           Get Support
         </Link>

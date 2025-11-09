@@ -138,7 +138,6 @@ export default function Enquiry() {
       <option value="">select</option>
       <option value="male">male</option>
       <option value="female">female</option>
-      <option value="intersex">intersex</option>
       <option value="prefer not to say">prefer not to say</option>
     </select>
   </div>
@@ -360,15 +359,79 @@ export default function Enquiry() {
         </div>
       </footer>
 
-      {/* Subsidiaries Bar - mobile */}
-      <div className="block md:hidden w-full h-[50px] sm:h-[62px] flex justify-center items-center gap-[12px] sm:gap-[16px] bg-[#222]">
-        {mobileHeroLogos.map((logo, idx) => (
-          <div key={logo.full} className="relative flex items-center px-[8px] sm:px-[10px] cursor-pointer group" style={{ width: `${logo.width * 0.85}px`, height: `${logo.height * 0.85}px` }}>
-            <Image src={logo.gray} alt={logo.altGray} width={logo.width} height={logo.height} className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${activeIndex === idx ? "opacity-0" : "opacity-100"} ${activeIndex !== idx ? "group-hover:brightness-150" : ""} w-[85%] sm:w-full h-auto`} />
-            <Image src={logo.full} alt={logo.altFull} width={logo.width} height={logo.height} className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${activeIndex === idx ? "opacity-100" : "opacity-0"} ${activeIndex !== idx ? "group-hover:brightness-150" : ""} w-[85%] sm:w-full h-auto`} />
+      {/* Logo Bar */}
+      <div className="flex w-full h-[50px] gap-[10px] justify-center items-center bg-[#222]">
+          {/* Mobile Logos */}
+          {mobileHeroLogos.map((logo, idx) => (
+            <div
+              key={logo.full}
+              onClick={() => handleLogoClick(idx)}
+              className="relative flex items-center z-10 px-[10px] cursor-pointer group lg:hidden"
+              style={{ width: `${logo.width}px`, height: `${logo.height}px` }}
+            >
+              <Image
+                src={logo.gray}
+                alt={logo.altGray}
+                width={logo.width}
+                height={logo.height}
+                className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 transition-opacity duration-200 ${
+                  activeIndex === idx ? 'opacity-0' : 'opacity-100'
+                } ${activeIndex !== idx ? 'group-hover:brightness-150' : ''} w-full h-auto`}
+              />
+              <Image
+                src={logo.full}
+                alt={logo.altFull}
+                width={logo.width}
+                height={logo.height}
+                className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/4 transition-opacity duration-200 ${
+                  activeIndex === idx ? 'opacity-100' : 'opacity-0'
+                } w-full h-auto`}
+              />
+            </div>
+          ))}
+
+          {/* Desktop Logos */}
+          <div className="hidden lg:flex z-20 justify-center items-center mb-4.5 gap-[8px] sm:gap-[16px] md:gap-[29px]">
+            {[0, 1, 2, 3].map((idx) => {
+              const srcs = [
+                { gray: '/Arbeegroupgrey.svg', full: '/Arbeegroupfull.svg', w: 130.7, h:24 },
+                { gray: '/Arbee-Aquatic-Full-Grey.svg', full: '/Arbee-Aquatic-Full.svg', w: 150.83, h: 24 },
+                { gray: '/Arbee-Biomarine-Full-Grey.svg', full: '/Arbee-Biomarine-Full.svg', w: 175, h: 24 },
+                { gray: '/Arbee-Care-Full-Grey.svg', full: '/Arbee-Care-Full.svg', w: 115, h: 24 },
+              ];
+              const { gray, full, w, h } = srcs[idx];
+              return (
+                <div
+                  key={idx}
+                  onClick={() => handleLogoClick(idx)}
+                  className="relative flex items-center cursor-pointer group "
+                  style={{ width: `${w}px`,
+                  height: `${h}px` }}
+               
+                >
+                  <Image
+                    src={gray}
+                    alt={`${['group', 'aquatic', 'biomarine', 'care'][idx]} gray`}
+                    width={w}
+                    height={h}
+                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 mb-[5.5%] transition-opacity duration-200 ${
+                      activeIndex === idx ? 'opacity-0' : 'opacity-100'
+                    } ${activeIndex !== idx ? 'group-hover:brightness-150' : ''} w-full h-auto`}
+                  />
+                  <Image
+                    src={full}
+                    alt={`${['group', 'aquatic', 'biomarine', 'care'][idx]}`}
+                    width={w}
+                    height={h}
+                    className={`absolute top-1/2 left-1/2 -translate-x-1/2 mb-[5.5%] transition-opacity duration-200 ${
+                      activeIndex === idx ? 'opacity-100' : 'opacity-0'
+                    } w-full h-auto`}
+                  />
+                </div>
+              );
+            })}
           </div>
-        ))}
-      </div>
+        </div>
     </main>
   );
 }
